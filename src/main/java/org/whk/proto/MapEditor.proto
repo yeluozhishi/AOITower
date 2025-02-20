@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "com.whk.protobuf.message";
+option java_outer_classname = "MapEditorProto";
+
+//32之前 只能单个 32以及之后组合
+enum CellType {
+  Normal = 0; // 正常
+  Null = 1; // 空点
+  Resistance = 2; // 阻挡
+  Safe = 3; // 保护（安全区）
+  Born = 4; // 人物默认出生点
+  Born_Safe = 32;//安全区+出生点
+}
+
+message Info {
+  int32 Coord = 1;
+  int32 Type = 2;
+}
+
+message MapInfoList {
+  repeated Info grid = 1; //格子列表
+}
+
+
+
